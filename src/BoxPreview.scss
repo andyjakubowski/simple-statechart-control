@@ -1,0 +1,34 @@
+:root {
+  background-color: burlywood;
+}
+
+#button-container {
+  padding: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 24px;
+}
+
+button {
+  width: 80px;
+  height: 80px;
+  border: none;
+  padding: 16px;
+  color: black;
+  background-color: white;
+  font-size: 24px;
+}
+
+button:hover {
+  background-color: lemonchiffon;
+}
+
+button:active {
+  border: 3px solid salmon;
+  background-color: teal;
+}
+
+button:focus {
+  outline: 5px double mediumslateblue;
+}

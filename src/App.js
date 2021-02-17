@@ -1,5 +1,7 @@
+import BoxPreview from './BoxPreview';
+
 function App() {
-  return <div>Hello World 🌐</div>;
+  return <BoxPreview />;
 }
 
 export default App;
