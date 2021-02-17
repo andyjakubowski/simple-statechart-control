@@ -7,17 +7,21 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-wrap: wrap;
+  white-space: pre-wrap;
   gap: 24px;
 }
 
 button {
-  width: 80px;
+  width: 140px;
   height: 80px;
   border: none;
   padding: 16px;
   color: black;
   background-color: white;
-  font-size: 24px;
+  font-size: 12px;
+  font-family: monospace;
+  text-align: left;
 }
 
 button:hover {
@@ -26,7 +30,6 @@ button:hover {
 
 button:active {
   border: 3px solid salmon;
-  background-color: teal;
 }
 
 button:focus {
