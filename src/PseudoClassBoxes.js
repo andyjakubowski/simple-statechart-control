@@ -1,9 +1,9 @@
 import { useEffect, useRef } from 'react';
-import './BoxPreview.scss';
+import './PseudoClassBoxes.scss';
 import PseudoStyler from './pseudostyler';
 import fastCartesian from 'fast-cartesian';
 
-const BoxPreview = function BoxPreview() {
+const PseudoClassBoxes = function PseudoClassBoxes() {
   let buttonRefs = useRef([]);
   const pseudoClasses = [':hover', ':active', ':focus'];
   const combinations = fastCartesian(pseudoClasses.map((_) => [true, false]));
@@ -14,8 +14,6 @@ const BoxPreview = function BoxPreview() {
   ));
 
   useEffect(() => {
-    console.log('useEffect');
-    console.log('buttonRefs.current:', buttonRefs.current);
     (async function togglePseudoStyles() {
       const styler = new PseudoStyler();
       await styler.loadDocumentStyles();
@@ -35,4 +33,4 @@ const BoxPreview = function BoxPreview() {
   return <div id="button-container">{buttons}</div>;
 };
 
-export default BoxPreview;
+export default PseudoClassBoxes;

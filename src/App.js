@@ -1,7 +1,7 @@
-import BoxPreview from './BoxPreview';
+import PseudoClassBoxes from './PseudoClassBoxes';
 
 function App() {
-  return <BoxPreview />;
+  return <PseudoClassBoxes />;
 }
 
 export default App;
