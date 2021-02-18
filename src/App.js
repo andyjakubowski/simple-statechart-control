@@ -1,7 +1,7 @@
-import ORStateBoxesMultipleNestingLevels from './ORStateBoxesMultipleNestingLevels';
+import ANDStateBoxes from './ANDStateBoxes';
 
 function App() {
-  return <ORStateBoxesMultipleNestingLevels />;
+  return <ANDStateBoxes />;
 }
 
 export default App;
