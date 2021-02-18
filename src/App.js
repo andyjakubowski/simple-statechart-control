@@ -1,7 +1,7 @@
-import PseudoClassBoxes from './PseudoClassBoxes';
+import ORStateBoxes from './ORStateBoxes';
 
 function App() {
-  return <PseudoClassBoxes />;
+  return <ORStateBoxes />;
 }
 
 export default App;
