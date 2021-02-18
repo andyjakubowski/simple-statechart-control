@@ -41,16 +41,11 @@ const Box = function Box({ machine }) {
   return <div className="box">State: {state.value}</div>;
 };
 
-const ORStateBoxes = function ORStateBoxes() {
+const ORStateBoxesOneNestingLevel = function ORStateBoxesOneNestingLevel() {
   const boxEls = machines.map((machine, i) => (
     <Box machine={machine} key={i} />
   ));
-  return (
-    <div>
-      {boxEls}
-      {/* <button onClick={send}>click</button> */}
-    </div>
-  );
+  return <div>{boxEls}</div>;
 };
 
-export default ORStateBoxes;
+export default ORStateBoxesOneNestingLevel;
