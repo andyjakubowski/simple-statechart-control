@@ -13,29 +13,52 @@
 }
 
 .Button {
+  --bg-color-h: 246;
+  --bg-color-s: 71%;
+  --bg-color-l__base: 66%;
+  --bg-color-l: calc(
+    var(--bg-color-l__base) + var(--bg-color-l__hover-delta, 0%)
+  );
+
+  height: 48px;
+  width: 240px;
+  box-sizing: border-box;
   border: none;
-  background-color: #e57f27;
+  background-color: hsl(
+    var(--bg-color-h),
+    var(--bg-color-s),
+    var(--bg-color-l)
+  );
   font-weight: 700;
-  font-size: 18px;
+  font-size: 16px;
   color: white;
   padding: 12px 24px;
   border-radius: 10px;
   cursor: pointer;
 
   &[data-state$='success'] {
-    background-color: #71ce52;
+    --bg-color-h: 132;
+    --bg-color-s: 55%;
+    --bg-color-l__base: 61%;
   }
 
   &[data-state$='error'] {
-    background-color: #ce5252;
+    --bg-color-h: 360;
+    --bg-color-s: 59%;
+    --bg-color-l__base: 57%;
   }
 
   &:hover {
-    background-color: darkslateblue;
+    --bg-color-l__hover-delta: 7%;
+  }
+
+  &:active {
+    transform: scale(0.95);
   }
 
   &:focus {
-    transform: scale(1.02);
-    outline: 5px double teal;
+    border: 2px solid whitesmoke;
+    box-shadow: 0 0 0 3px black;
+    outline: none;
   }
 }

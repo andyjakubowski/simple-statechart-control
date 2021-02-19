@@ -68,13 +68,17 @@ const ButtonPseudoStateCollection = function ButtonPseudoStateCollection({
 const getLabelText = function getLabelText(state) {
   const statesString = state.toStrings().join(' ');
   if (statesString.endsWith('idle')) {
-    return 'Buy now';
+    // return 'Buy now';
+    return 'Idle';
   } else if (statesString.endsWith('loading')) {
-    return 'Processing payment...';
+    // return 'Processing payment...';
+    return 'Loading...';
   } else if (statesString.endsWith('success')) {
-    return 'Success!';
+    // return 'Success!';
+    return 'Success';
   } else if (statesString.endsWith('error')) {
-    return 'Payment failed :/';
+    // return 'Payment failed :/';
+    return 'Error';
   } else {
     return 'Unrecognized state';
   }
