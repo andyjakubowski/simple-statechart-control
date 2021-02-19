@@ -6,63 +6,87 @@ import fastCartesian from 'fast-cartesian';
 window.fastCartesian = fastCartesian;
 
 // const machineDefObj = {
-//   initial: 'atomicStateReacher',
+//   initial: 'dead',
 //   states: {
-//     atomicStateReacher: {
-//       always: {
-//         target: [
-//           'root.view.zen.a.on',
-//           'root.view.zen.b.off',
-//           'root.edit.bold.off',
-//           'root.edit.italic.off',
-//         ],
-//       },
-//     },
-//     root: {
+//     dead: {},
+//     alive: {
 //       type: 'parallel',
 //       states: {
-//         view: {
-//           initial: 'zen',
+//         power: {
+//           initial: 'ok',
 //           states: {
-//             default: {},
-//             zen: {
-//               type: 'parallel',
+//             ok: {},
+//             blink: {},
+//           },
+//         },
+//         light: {
+//           initial: 'on',
+//           states: {
+//             on: {},
+//             off: {},
+//           },
+//         },
+//         chimeStatus: {
+//           initial: 'disabled',
+//           states: {
+//             disabled: {},
+//             enabled: {
+//               initial: 'quiet',
 //               states: {
-//                 a: {
-//                   initial: 'on',
-//                   states: {
-//                     on: {},
-//                     off: {},
-//                   },
-//                 },
-//                 b: {
-//                   initial: 'on',
-//                   states: {
-//                     on: {},
-//                     off: {},
-//                   },
-//                 },
+//                 quiet: {},
+//                 beep: {},
 //               },
 //             },
 //           },
 //         },
-//         edit: {
-//           type: 'parallel',
+//         alarm2Status: {
+//           initial: 'disabled',
 //           states: {
-//             bold: {
-//               initial: 'on',
+//             disabled: {},
+//             enabled: {},
+//           },
+//         },
+//         alarm1Status: {
+//           initial: 'disabled',
+//           states: {
+//             disabled: {},
+//             enabled: {},
+//           },
+//         },
+//         main: {
+//           initial: 'displays',
+//           states: {
+//             displays: {
+//               initial: 'out',
 //               states: {
-//                 on: {},
-//                 off: {},
+//                 timeOrDate: {
+//                   type: 'parallel',
+//                   states: {
+//                     regular: {
+//                       initial: 'time',
+//                       states: {
+//                         time: {},
+//                         date: {},
+//                         update: {},
+//                       },
+//                     },
+//                     beepTest: {
+//                       initial: 'OO',
+//                       states: {
+//                         OO: {},
+//                         OI: {},
+//                         IO: {},
+//                         beep: {},
+//                       },
+//                     },
+//                   },
+//                 },
+//                 wait: {},
+//                 stopwatch: {},
+//                 out: {},
 //               },
 //             },
-//             italic: {
-//               initial: 'on',
-//               states: {
-//                 on: {},
-//                 off: {},
-//               },
-//             },
+//             alarmsBeep: {},
 //           },
 //         },
 //       },
@@ -70,80 +94,49 @@ window.fastCartesian = fastCartesian;
 //   },
 // };
 
-const machineDefObj = {
-  type: 'parallel',
-  states: {
-    view: {
-      initial: 'zen',
-      states: {
-        default: {},
-        zen: {
-          type: 'parallel',
-          states: {
-            a: {
-              initial: 'on',
-              states: {
-                on: {},
-                off: {},
-              },
-            },
-            b: {
-              initial: 'on',
-              states: {
-                on: {},
-                off: {},
-              },
-            },
-          },
-        },
-      },
-    },
-    edit: {
-      type: 'parallel',
-      states: {
-        bold: {
-          initial: 'on',
-          states: {
-            on: {},
-            off: {},
-          },
-        },
-        italic: {
-          initial: 'on',
-          states: {
-            on: {},
-            off: {},
-          },
-        },
-      },
-    },
-  },
-};
-
 // const machineDefObj = {
-//   initial: 'atomicStateReacher',
+//   type: 'parallel',
 //   states: {
-//     atomicStateReacher: {
-//       always: {
-//         target: ['realStates.a.c', 'realStates.d.g'],
-//       },
-//     },
-//     realStates: {
-//       type: 'parallel',
+//     view: {
+//       initial: 'zen',
 //       states: {
-//         a: {
-//           initial: 'b',
+//         default: {},
+//         zen: {
+//           type: 'parallel',
 //           states: {
-//             b: {},
-//             c: {},
+//             a: {
+//               initial: 'on',
+//               states: {
+//                 on: {},
+//                 off: {},
+//               },
+//             },
+//             b: {
+//               initial: 'on',
+//               states: {
+//                 on: {},
+//                 off: {},
+//               },
+//             },
 //           },
 //         },
-//         d: {
-//           initial: 'f',
+//       },
+//     },
+//     edit: {
+//       type: 'parallel',
+//       states: {
+//         bold: {
+//           initial: 'on',
 //           states: {
-//             e: {},
-//             f: {},
-//             g: {},
+//             on: {},
+//             off: {},
+//           },
+//         },
+//         italic: {
+//           initial: 'on',
+//           states: {
+//             on: {},
+//             off: {},
 //           },
 //         },
 //       },
@@ -172,25 +165,25 @@ const machineDefObj = {
 //   },
 // };
 
-// const machineDefObj = {
-//   type: 'parallel',
-//   states: {
-//     a: {
-//       initial: 'on',
-//       states: {
-//         on: {},
-//         off: {},
-//       },
-//     },
-//     b: {
-//       initial: 'on',
-//       states: {
-//         on: {},
-//         off: {},
-//       },
-//     },
-//   },
-// };
+const machineDefObj = {
+  type: 'parallel',
+  states: {
+    a: {
+      initial: 'on',
+      states: {
+        on: {},
+        off: {},
+      },
+    },
+    b: {
+      initial: 'on',
+      states: {
+        on: {},
+        off: {},
+      },
+    },
+  },
+};
 
 // const machineDefObj = {
 //   type: 'compound',
@@ -299,9 +292,12 @@ const getStatePaths = function getStatePaths({
       return stateName;
   }
 };
-const statePaths = getStatePaths({
+let statePaths = getStatePaths({
   stateObject: machineDefObj,
-}).map((path) => path.flat(Infinity));
+});
+statePaths = statePaths.map((path) =>
+  Array.isArray(path) ? path.flat(Infinity) : path
+);
 
 const machineDefObjects = statePaths.map((statePath) => {
   return {
