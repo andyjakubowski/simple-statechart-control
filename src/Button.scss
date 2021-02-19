@@ -6,6 +6,12 @@
   align-items: center;
 }
 
+.ButtonPseudoStateCollection {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
 .Button {
   border: none;
   background-color: #e57f27;

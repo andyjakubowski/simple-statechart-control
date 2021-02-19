@@ -2,6 +2,9 @@ import './Button.scss';
 import getAllPossibleMachineDefs from './getAllPossibleMachineDefs';
 import { createMachine } from 'xstate';
 import { useMachine } from '@xstate/react';
+import { useEffect, useRef } from 'react';
+import fastCartesian from 'fast-cartesian';
+import PseudoStyler from './pseudostyler';
 
 const machineDef = {
   initial: 'idle',
@@ -17,10 +20,49 @@ const machineDefs = getAllPossibleMachineDefs(machineDef);
 const machines = machineDefs.map(createMachine);
 
 const ButtonsPreview = function ButtonsPreview() {
-  const buttonEls = machines.map((machine, i) => (
-    <Button machine={machine} key={i} />
+  const buttonPseudoStateCollectionEls = machines.map((machine, i) => (
+    <ButtonPseudoStateCollection machine={machine} key={i} />
   ));
-  return <div className="ButtonsPreview">{buttonEls}</div>;
+  return <div className="ButtonsPreview">{buttonPseudoStateCollectionEls}</div>;
+};
+
+const ButtonPseudoStateCollection = function ButtonPseudoStateCollection({
+  machine,
+}) {
+  const buttonRefs = useRef([]);
+  const [state] = useMachine(machine);
+  const labelText = getLabelText(state);
+  const pseudoClasses = [':hover', ':active', ':focus'];
+  const pseudoClassCombinations = fastCartesian(
+    pseudoClasses.map((_) => [true, false])
+  );
+  const buttonEls = pseudoClassCombinations.map((combArray, i) => (
+    <button
+      className="Button"
+      ref={(el) => (buttonRefs.current[String(i)] = el)}
+      data-state={state.toStrings().join(' ')}
+      key={i}
+    >
+      {labelText}
+    </button>
+  ));
+  useEffect(() => {
+    (async function togglePseudoStyles() {
+      const styler = new PseudoStyler();
+      await styler.loadDocumentStyles();
+      Object.values(buttonRefs.current).forEach((buttonRef, buttonIndex) => {
+        const pseudoClassValues = pseudoClassCombinations[buttonIndex];
+        pseudoClassValues.forEach((isClassActive, classIndex) => {
+          if (isClassActive) {
+            styler.toggleStyle(buttonRef, pseudoClasses[classIndex]);
+          }
+        });
+      });
+    })();
+    return () => (buttonRefs.current = {});
+  });
+
+  return <div className="ButtonPseudoStateCollection">{buttonEls}</div>;
 };
 
 const getLabelText = function getLabelText(state) {
@@ -36,16 +78,6 @@ const getLabelText = function getLabelText(state) {
   } else {
     return 'Unrecognized state';
   }
-};
-
-const Button = function Button({ machine }) {
-  const [state] = useMachine(machine);
-  const labelText = getLabelText(state);
-  return (
-    <button className="Button" data-state={state.toStrings().join(' ')}>
-      {labelText}
-    </button>
-  );
 };
 
 export default ButtonsPreview;
