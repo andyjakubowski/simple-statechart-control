@@ -8,7 +8,11 @@ const PseudoClassBoxes = function PseudoClassBoxes() {
   const pseudoClasses = [':hover', ':active', ':focus'];
   const combinations = fastCartesian(pseudoClasses.map((_) => [true, false]));
   const buttons = combinations.map((combArray, i) => (
-    <button ref={(el) => buttonRefs.current.push(el)} key={i}>
+    <button
+      className="PseudoClassBox"
+      ref={(el) => buttonRefs.current.push(el)}
+      key={i}
+    >
       {`hover:\t${combArray[0]}\nactive:\t${combArray[1]}\nfocus:\t${combArray[2]}`}
     </button>
   ));
@@ -30,7 +34,7 @@ const PseudoClassBoxes = function PseudoClassBoxes() {
     return () => (buttonRefs.current = []);
   });
 
-  return <div id="button-container">{buttons}</div>;
+  return <div className="PseudoClassBoxContainer">{buttons}</div>;
 };
 
 export default PseudoClassBoxes;

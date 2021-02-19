@@ -2,7 +2,7 @@
   background-color: burlywood;
 }
 
-#button-container {
+.PseudoClassBoxContainer {
   padding: 24px;
   display: flex;
   justify-content: center;
@@ -12,7 +12,7 @@
   gap: 24px;
 }
 
-button {
+.PseudoClassBox {
   width: 140px;
   height: 80px;
   border: none;
@@ -22,16 +22,15 @@ button {
   font-size: 12px;
   font-family: monospace;
   text-align: left;
-}
 
-button:hover {
-  background-color: lemonchiffon;
-}
+  &:hover {
+    background-color: lemonchiffon;
+  }
+  &:active {
+    border: 3px solid salmon;
+  }
 
-button:active {
-  border: 3px solid salmon;
-}
-
-button:focus {
-  outline: 5px double mediumslateblue;
+  &:focus {
+    outline: 5px double mediumslateblue;
+  }
 }
