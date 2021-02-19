@@ -1,7 +1,14 @@
-import ANDStateBoxes from './ANDStateBoxes';
+import ButtonsPreview from './ButtonsPreview';
+import PseudoClassBoxes from './PseudoClassBoxes';
+import './App.scss';
 
 function App() {
-  return <ANDStateBoxes />;
+  return (
+    <div className="content-container">
+      <ButtonsPreview />
+      <PseudoClassBoxes />
+    </div>
+  );
 }
 
 export default App;

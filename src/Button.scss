@@ -1,0 +1,35 @@
+.ButtonsPreview {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 32px;
+  justify-content: center;
+  align-items: center;
+}
+
+.Button {
+  border: none;
+  background-color: #e57f27;
+  font-weight: 700;
+  font-size: 18px;
+  color: white;
+  padding: 12px 24px;
+  border-radius: 10px;
+  cursor: pointer;
+
+  &[data-state$='success'] {
+    background-color: #71ce52;
+  }
+
+  &[data-state$='error'] {
+    background-color: #ce5252;
+  }
+
+  &:hover {
+    background-color: darkslateblue;
+  }
+
+  &:focus {
+    transform: scale(1.02);
+    outline: 5px double teal;
+  }
+}
