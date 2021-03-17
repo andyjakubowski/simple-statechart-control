@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/simple-statechart-control/static/css/main.607b3ef4.chunk.css",
+    "main.js": "/simple-statechart-control/static/js/main.03e8d34c.chunk.js",
+    "main.js.map": "/simple-statechart-control/static/js/main.03e8d34c.chunk.js.map",
+    "runtime-main.js": "/simple-statechart-control/static/js/runtime-main.b037662e.js",
+    "runtime-main.js.map": "/simple-statechart-control/static/js/runtime-main.b037662e.js.map",
+    "static/js/2.522b913c.chunk.js": "/simple-statechart-control/static/js/2.522b913c.chunk.js",
+    "static/js/2.522b913c.chunk.js.map": "/simple-statechart-control/static/js/2.522b913c.chunk.js.map",
+    "static/js/3.4fa477a3.chunk.js": "/simple-statechart-control/static/js/3.4fa477a3.chunk.js",
+    "static/js/3.4fa477a3.chunk.js.map": "/simple-statechart-control/static/js/3.4fa477a3.chunk.js.map",
+    "index.html": "/simple-statechart-control/index.html",
+    "static/css/main.607b3ef4.chunk.css.map": "/simple-statechart-control/static/css/main.607b3ef4.chunk.css.map",
+    "static/js/2.522b913c.chunk.js.LICENSE.txt": "/simple-statechart-control/static/js/2.522b913c.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.b037662e.js",
+    "static/js/2.522b913c.chunk.js",
+    "static/css/main.607b3ef4.chunk.css",
+    "static/js/main.03e8d34c.chunk.js"
+  ]
+}
